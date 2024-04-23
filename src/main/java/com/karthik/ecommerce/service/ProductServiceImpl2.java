@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl2 implements ProductService{
 
     @Override
-    public Product getProductById(String id) {
+    public Product getProductById(long id) {
         return null;
     }
 }

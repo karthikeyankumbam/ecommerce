@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/products")
 public class ProductController {
 
-    @Qualifier("service1")
+
     @Autowired
+    @Qualifier("fakeStoreService")
     ProductService productService;
     
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id") long id){
-
-        return null;
+        Product product=productService.getProductById(id);
+        return product;
     }
+
 }
