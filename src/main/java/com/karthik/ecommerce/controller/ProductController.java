@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -17,13 +19,17 @@ public class ProductController {
     private final ProductService productService;
 
     @Autowired
-    public ProductController(@Qualifier("fakeStoreService") ProductService productService) {
+    public ProductController(@Qualifier("fakeStoreWithWebClient") ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id") long id){
         return productService.getProductById(id);
+    }
+    @GetMapping("/fetchall")
+    public List<Product> getProducts(){
+        return productService.getAllProducts();
     }
 
 }
