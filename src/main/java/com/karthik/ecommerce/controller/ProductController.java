@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
 
+    private final ProductService productService;
+
     @Autowired
-    @Qualifier("fakeStoreService")
-    ProductService productService;
-    
+    public ProductController(@Qualifier("fakeStoreService") ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id") long id){
-        Product product=productService.getProductById(id);
-        return product;
+        return productService.getProductById(id);
     }
 
 }

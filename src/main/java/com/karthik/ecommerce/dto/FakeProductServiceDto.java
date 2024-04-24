@@ -1,6 +1,5 @@
 package com.karthik.ecommerce.dto;
 
-import com.karthik.ecommerce.model.Category;
 import lombok.Data;
 
 @Data
@@ -10,5 +9,5 @@ public class FakeProductServiceDto {
     private double price;
     private String description;
     private String image;
-    private Category category;
+    private String category;
 }
