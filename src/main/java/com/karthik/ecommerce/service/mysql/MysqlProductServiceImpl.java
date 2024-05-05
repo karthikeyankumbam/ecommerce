@@ -46,6 +46,9 @@ public class MysqlProductServiceImpl implements ProductService {
 
     @Override
     public Product updatePrice(long productId, double updatedPrice) {
+        //fetch
+        //set
+        //save
         return null;
     }
 
