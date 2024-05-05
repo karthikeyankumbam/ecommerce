@@ -1,13 +1,11 @@
 package com.karthik.ecommerce.controller;
 
+import com.karthik.ecommerce.dto.ProductRequest;
 import com.karthik.ecommerce.model.Product;
 import com.karthik.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class ProductController {
     private final ProductService productService;
 
     @Autowired
-    public ProductController(@Qualifier("fakeStoreWithWebClient") ProductService productService) {
+    public ProductController(@Qualifier("mysqlProductService") ProductService productService) {
         this.productService = productService;
     }
 
@@ -31,5 +29,14 @@ public class ProductController {
     public List<Product> getProducts(){
         return productService.getAllProducts();
     }
+    @PostMapping("/create")
+    public Product createProduct(@RequestBody ProductRequest productRequest){
+        return productService.createProduct(productRequest.getTitle(),
+                productRequest.getDescription(),
+                productRequest.getImage(),
+                productRequest.getPrice(),
+                productRequest.getCategoryName());
+    }
+
 
 }

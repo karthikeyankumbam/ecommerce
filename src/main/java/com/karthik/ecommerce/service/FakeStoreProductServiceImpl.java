@@ -47,14 +47,20 @@ public class FakeStoreProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct() {
+    public Product createProduct(String title, String description, String image, double price, String categoryName) {
         return null;
     }
 
     @Override
-    public Product updateProduct() {
+    public Product updatePrice(long productId, double updatedPrice) {
         return null;
     }
+
+    @Override
+    public Product updateImage(long productId, String updatedImage) {
+        return null;
+    }
+
 
     @Override
     public boolean deleteProduct() {
