@@ -10,14 +10,15 @@ public class Mapper {
     private Mapper(){}
     public static Product convertDtoToProduct(FakeProductServiceDto dto){
         if(nonNull(dto)){
-            return Product.builder().
-                    id(dto.getId()).
-                    price(dto.getPrice()).
-                    title(dto.getTitle()).
-                    image(dto.getImage()).
-                    description(dto.getDescription()).
-                    category(Category.builder().name(dto.getCategory()).build()).
-                    build();
+            Product product=new Product();
+            product.setId(dto.getId());
+            product.setTitle(dto.getTitle());
+            product.setPrice(dto.getPrice());
+            product.setImage(dto.getImage());
+            product.setCategory(new Category());
+            product.getCategory().setName(dto.getCategory());
+            product.setDescription(dto.getDescription());
+            return product;
         }
         return null;
     }

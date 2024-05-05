@@ -41,4 +41,19 @@ public class FakeStoreProductServiceWebClientImpl implements ProductService {
                 .bodyToFlux(FakeProductServiceDto.class)
                 .map(Mapper::convertDtoToProduct).collectList().block();
     }
+
+    @Override
+    public Product createProduct() {
+        return null;
+    }
+
+    @Override
+    public Product updateProduct() {
+        return null;
+    }
+
+    @Override
+    public boolean deleteProduct() {
+        return false;
+    }
 }

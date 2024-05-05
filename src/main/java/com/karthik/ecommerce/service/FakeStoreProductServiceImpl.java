@@ -45,4 +45,19 @@ public class FakeStoreProductServiceImpl implements ProductService {
         }
         return products;
     }
+
+    @Override
+    public Product createProduct() {
+        return null;
+    }
+
+    @Override
+    public Product updateProduct() {
+        return null;
+    }
+
+    @Override
+    public boolean deleteProduct() {
+        return false;
+    }
 }
